@@ -1,0 +1,63 @@
+{
+  "scripts": {
+    "start": "webpack-dev-server --mode=development --port 4200 --env.isLocal=true",
+    "lint": "eslint src --ext js,ts,tsx",
+    "test": "cross-env BABEL_ENV=test jest --passWithNoTests",
+    "format": "prettier --write './**'",
+    "build": "webpack --mode=production",
+    "clean": "rimraf dist"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged && concurrently npm:test npm:lint"
+    }
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/preset-env": "^7.7.4",
+    "@babel/preset-typescript": "^7.9.0",
+    "@babel/runtime": "^7.8.7",
+    "@types/systemjs": "^6.1.0",
+    "autoprefixer": "^8.1.0",
+    "babel-eslint": "^11.0.0-beta.2",
+    "concurrently": "^5.1.0",
+    "cross-env": "^7.0.2",
+    "css-loader": "^3.6.0",
+    "eslint": "^6.7.2",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-config-ts-react-important-stuff": "^2.0.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "html-webpack-plugin": "^4.0.4",
+    "husky": "^4.2.3",
+    "jest": "^25.2.7",
+    "jest-cli": "^25.2.7",
+    "prettier": "^2.0.4",
+    "pretty-quick": "^2.0.1",
+    "node-sass": "^4.14.1",
+    "postcss-loader": "^2.1.1",
+    "postcss-normalize": "^4.0.0",
+    "rimraf": "^3.0.2",
+    "sass-loader": "^7.2.7",
+    "serve": "^11.2.0",
+    "ts-config-single-spa": "^1.7.0",
+    "typescript": "^3.8.3",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-config-single-spa-ts": "^1.4.2",
+    "webpack-dev-server": "^3.9.0",
+    "webpack-merge": "^4.2.2"
+  },
+  "dependencies": {
+    "single-spa-layout": "^1.0.0-beta.2",
+    "single-spa": "^5.3.1",
+    "bootstrap": "^4.5.0",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1",
+    "@types/jest": "^25.2.1",
+    "@types/react": "^16.9.32",
+    "@types/react-dom": "^16.9.6",
+    "@types/systemjs": "^6.1.0",
+    "@types/webpack-env": "^1.15.1"
+  }
+}
