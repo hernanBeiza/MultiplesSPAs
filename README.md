@@ -4,7 +4,7 @@ Ejemplo de uso de single-spa-js y single-spa-layout con aplicaciones angular
 
 ## Diagrama de Arquitectura
 
-![](docs/Prueba2.png)
+![](docs/Separacion.jpg)
 
 
 ## Tecnologías
