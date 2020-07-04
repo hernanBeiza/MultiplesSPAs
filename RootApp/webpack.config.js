@@ -1,12 +1,14 @@
-const path = require('path');
+const path = require("path");
 const webpackMerge = require("webpack-merge");
 const singleSpaDefaults = require("webpack-config-single-spa-ts");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const autoprefixer = require('autoprefixer');
+const autoprefixer = require("autoprefixer");
 
-const isDevelopment = process.env.NODE_ENV !== 'production';
+const isDevelopment = process.env.NODE_ENV !== "production";
 
 module.exports = (webpackConfigEnv) => {
+  const isProduction = webpackConfigEnv.production;
+
   const defaultConfig = singleSpaDefaults({
     orgName: "amisoft",
     projectName: "root-config",
@@ -19,7 +21,7 @@ module.exports = (webpackConfigEnv) => {
       historyApiFallback: true,
       open: true,
       watchContentBase: true,
-      contentBase: path.join(__dirname, "src")
+      contentBase: path.join(__dirname, "src"),
     },
     module: {
       rules: [
@@ -27,33 +29,31 @@ module.exports = (webpackConfigEnv) => {
           test: /\.(scss|css)$/,
           use: [
             "style-loader",
-            {              
+            {
               loader: "css-loader",
               options: {
                 sourceMap: isDevelopment,
-              }
+              },
             },
             {
               loader: "postcss-loader",
               options: {
                 autoprefixer: {
-                  browsers: ["last 2 versions"]
+                  browsers: ["last 2 versions"],
                 },
                 sourceMap: isDevelopment,
-                plugins: () => [
-                  autoprefixer
-                ]
+                plugins: () => [autoprefixer],
               },
             },
             {
               loader: "sass-loader",
               options: {
-                sourceMap: isDevelopment
-              }
-            }
-          ]
+                sourceMap: isDevelopment,
+              },
+            },
+          ],
         },
-      ]
+      ],
     },
     plugins: [
       new HtmlWebpackPlugin({
@@ -61,6 +61,8 @@ module.exports = (webpackConfigEnv) => {
         template: "./src/index.ejs",
         templateParameters: {
           isLocal: webpackConfigEnv && webpackConfigEnv.isLocal === "true",
+          isDev: isDevelopment,
+          isProd: isProduction,
         },
       }),
     ],

@@ -51,7 +51,21 @@
       }
     }
   </script>
+  <% } %>  
+  <% if (isProd) { %>
+  <script type="systemjs-importmap">
+    {
+      "imports": {
+        "@amisoft/root-config": "//192.168.99.100:8080/amisoft-root-config.js",
+        "@amisoft/top-app": "//192.168.99.102:8080/main-es5.js",
+        "@amisoft/menu-app": "//192.168.99.101:8080/main-es5.js",
+        "@amisoft/bandeja-app": "//192.168.99.104:8080/main-es5.js",
+        "@amisoft/tramitar-app": "//192.168.99.103:8080/main-es5.js"
+      }
+    }
+  </script>
   <% } %>
+
 
   <!--
     If you need to support Angular applications, uncomment the script tag below to ensure only one instance of ZoneJS is loaded
