@@ -6,6 +6,9 @@ Ejemplo de uso de single-spa-js y single-spa-layout con aplicaciones angular
 
 ![](docs/Separacion.jpg)
 
+### Layout aplicación root
+
+![](docs/Layout.jpg)
 
 ## Tecnologías
 

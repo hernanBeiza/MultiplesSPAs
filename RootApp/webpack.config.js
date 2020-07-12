@@ -66,5 +66,8 @@ module.exports = (webpackConfigEnv) => {
         },
       }),
     ],
+    output: {
+      path: path.resolve("./dist/RootApp"),
+    },
   });
 };
